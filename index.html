@@ -2,35 +2,48 @@
 <html>
 
   <head>
-    <meta charset="utf-8">
-
+    <meta charset='utf-8'>
     <title>Rock Paper Scissors game</title>
+    <link href= "static/webfonts/" rel="stylesheet">
+    <link href= "static/all.css" rel="stylesheet">
+    <link href= "styles/main.css" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">     <script defer src="static/all.js"></script> <!--load all styles -->  </head>
 
-    <link rel="stylesheet" 
-    href="styles/main.css" />      
-  </head>
+  <body<>
+    <header>   
+      <h1 class = 'title'>Rock Paper Scissors</h1>
+      <h3 class = "sub-total">Human vs Machine</h3>
+    </header>   
 
-  <body>
-
-    <div class="header">      
-      <h1>Rock Paper Scissors</h1>
-      <h3>Human vs Machine</h3>
-    </div>  
-    <div class= "gameIntroTop">
-      <p>First to <b>10</b> points wins!</p>
-    </div>
-   
-    <div class= "gameIntroBottom">
-      <div class = "gameIntroLeft">
-        <p>Choose your weapon</p>
-      </div>
-      <div class = "gameIntroRight">
-        <p>Point Tracker</p>
-      </div>
+    <div class = 'score-board'>
+      <div id = "human-label" class = "badge">human</div>
+      <div id = "machine-label" class = "badge">machine</div>
+      <span id = "human-score">0</span>:<span id = "machine-score">0</span>
     </div>
 
+    <div class= 'result'>
+      <!-- Add logic in app.js to change phrase -->
+      <p>Welcome!</p>
+    </div>
+
+    <div class = 'choices'>
+      <div class = "choice" id ="Rock">
+        <i class ="fas fa-hand-rock" alt = ""></i>        
+      </div>
+      <div class = "choice" id ="Paper">
+        <i class="fas fa-hand-paper" alt = ""></i>
+      </div>
+      <div class = "choice" id ="Scissors">
+        <i class="fas fa-hand-scissors" alt = ""></i>   
+      </div>     
+    </div>
+
+    <p id = "message">Choose your weapon</p>
+
+    <script src= 'scripts/app.js'></script>
 
   </body>
 
-  <script src= "scripts/app.js"></script>
 </html>
