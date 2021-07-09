@@ -17,30 +17,36 @@
       <h3 class = "sub-total">Human vs Machine</h3>
     </header>   
 
+    <div class= 'result'>
+      <!-- Add logic in app.js to change phrase -->
+      <p>Welcome!</p>
+    </div>
+
     <div class = 'score-board'>
       <div id = "human-label" class = "badge">human</div>
       <div id = "machine-label" class = "badge">machine</div>
       <span id = "human-score">0</span>:<span id = "machine-score">0</span>
     </div>
 
-    <div class= 'result'>
-      <!-- Add logic in app.js to change phrase -->
-      <p>Welcome!</p>
+    <div class = 'restart-button'>
+      <button onclick="restartGame()">restart game</button>
     </div>
 
     <div class = 'choices'>
       <div class = "choice" id ="Rock">
-        <i class ="fas fa-hand-rock" alt = ""></i>        
+        <i class ="fas fa-hand-rock" alt = "rock icon"></i>        
       </div>
       <div class = "choice" id ="Paper">
-        <i class="fas fa-hand-paper" alt = ""></i>
+        <i class="fas fa-hand-paper" alt = "paper icon"></i>
       </div>
       <div class = "choice" id ="Scissors">
-        <i class="fas fa-hand-scissors" alt = ""></i>   
+        <i class="fas fa-hand-scissors" alt = "scissors icon"></i>   
       </div>     
     </div>
-
-    <p id = "message">Choose your weapon</p>
+    
+    <div class = "message">
+      <p>Choose your weapon</p>
+    </div> 
 
     <script src= 'scripts/app.js'></script>
 

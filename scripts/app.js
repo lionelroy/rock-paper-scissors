@@ -7,6 +7,8 @@ const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("Rock");
 const paper_div = document.getElementById("Paper");
 const scissors_div = document.getElementById("Scissors");
+const message_p =  document.querySelector(".message > p")
+
 
 
 function getMachineChoice() {
@@ -16,15 +18,19 @@ function getMachineChoice() {
 }
 
 
-
 function win(humanChoice, machineChoice) {
     const humanChoice_div = document.getElementById(humanChoice);
     humanScore++;
     humanScore_span.innerHTML = humanScore;
     machineScore_span.innerHTML = machineScore;
-    result_p.innerHTML = `${humanChoice} beats ${machineChoice}. You win!`;
     humanChoice_div.classList.add("green-glow");
-    setTimeout(() => humanChoice_div.classList.remove("green-glow"),700);
+    setTimeout(() => humanChoice_div.classList.remove("green-glow"),500);
+    if(humanScore >= 10) { 
+        result_p.innerHTML = "You have won the game!...Congratutalions!!!"
+    } else if(humanScore < 10) {
+        result_p.innerHTML = `${humanChoice} beats ${machineChoice}.You have won the round!`;
+        endGame();
+    };
 }
 
 function lose(humanChoice, machineChoice) {
@@ -32,22 +38,27 @@ function lose(humanChoice, machineChoice) {
     machineScore++;
     humanScore_span.innerHTML = humanScore;
     machineScore_span.innerHTML = machineScore;
-    result_p.innerHTML = `${humanChoice} loses to ${machineChoice}.You lose!`;
     humanChoice_div.classList.add("red-glow");
-    setTimeout(() => humanChoice_div.classList.remove("red-glow"),700);
+    setTimeout(() => humanChoice_div.classList.remove("red-glow"),500);
+    if(machineScore >= 10) { 
+        result_p.innerHTML = "You have lost the game!...Better luck next time!"
+    } else if(machineScore < 10) {
+        result_p.innerHTML = `${humanChoice} losses to ${machineChoice}.You have lost the round!`;
+        endGame();
+    };
 }
 
 function draw(humanChoice, machineChoice) {
     const humanChoice_div = document.getElementById(humanChoice);
-    result_p.innerHTML = `${humanChoice} equals ${machineChoice}.It\'s a draw!`;
     humanChoice_div.classList.add("gray-glow");
-    setTimeout(() => humanChoice_div.classList.remove("gray-glow"),700);
-}
+    setTimeout(() => humanChoice_div.classList.remove("gray-glow"),500);
+    result_p.innerHTML = `${humanChoice} equals ${machineChoice}.It\'s a draw!`; 
+} 
 
 function game(humanChoice) {
     const machineChoice = getMachineChoice();
     switch(humanChoice + machineChoice) {
-        case"RockScissors":
+        case "RockScissors":
         case "PaperRock":
         case "ScissorsPaper":
             win(humanChoice, machineChoice);
@@ -59,10 +70,33 @@ function game(humanChoice) {
             break;
         default:
             draw(humanChoice, machineChoice);
-
     }
 }
 
+function endGame() {
+    rock_div.removeEventListener("click",() => game("Rock")
+    )
+    paper_div.removeEventListener("click",() => game("Paper")
+    )
+    scissors_div.removeEventListener("click",() => game("Scissors")
+    )  
+}
+
+endGame();
+
+function restartGame() {
+    result_p.innerHTML = "Ready for more?"
+    humanScore_span.innerHTML = humanScore;
+    machineScore_span.innerHTML = machineScore;
+    humanScore = 0;
+    machineScore = 0;
+    humanScore_span.innerHTML = humanScore;
+    machineScore_span.innerHTML = machineScore;
+    rock_div.disabled = false;
+    paper_div.disabled = false;
+    scissors_div.disabled = false;
+}
+  
 function main() {
     rock_div.addEventListener("click",() => game("Rock")
     )
@@ -74,4 +108,3 @@ function main() {
 
 main();
 
-// END OF PROGRAM
