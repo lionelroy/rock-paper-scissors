@@ -94,3 +94,18 @@ span{
     font-weight: bold;
     margin-top: 20px;
 }
+
+.green-glow {
+    border: 4px solid #1bf029;
+    box-shadow: 0 0 10px #007c30;
+}
+
+.red-glow {
+    border: 4px solid #f20505;
+    box-shadow: 0 0 10px #970406;
+}
+
+.gray-glow {
+    border: 4px solid #585858;
+    box-shadow: 0 0 10px #282c2e;
+}
