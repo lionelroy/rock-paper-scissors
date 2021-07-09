@@ -26,10 +26,10 @@ function win(humanChoice, machineChoice) {
     humanChoice_div.classList.add("green-glow");
     setTimeout(() => humanChoice_div.classList.remove("green-glow"),500);
     if(humanScore >= 10) { 
-        result_p.innerHTML = "You have won the game!...Congratutalions!!!"
+        result_p.innerHTML = "You have won the game!...Congratutalions!!!";
+        endGame();
     } else if(humanScore < 10) {
         result_p.innerHTML = `${humanChoice} beats ${machineChoice}.You have won the round!`;
-        endGame();
     };
 }
 
@@ -41,10 +41,10 @@ function lose(humanChoice, machineChoice) {
     humanChoice_div.classList.add("red-glow");
     setTimeout(() => humanChoice_div.classList.remove("red-glow"),500);
     if(machineScore >= 10) { 
-        result_p.innerHTML = "You have lost the game!...Better luck next time!"
+        result_p.innerHTML = "You have lost the game!...Better luck next time!";
+        endGame();
     } else if(machineScore < 10) {
         result_p.innerHTML = `${humanChoice} losses to ${machineChoice}.You have lost the round!`;
-        endGame();
     };
 }
 
@@ -79,10 +79,8 @@ function endGame() {
     paper_div.removeEventListener("click",() => game("Paper")
     )
     scissors_div.removeEventListener("click",() => game("Scissors")
-    )  
+    )
 }
-
-endGame();
 
 function restartGame() {
     result_p.innerHTML = "Ready for more?"
