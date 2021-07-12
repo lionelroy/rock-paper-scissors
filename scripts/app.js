@@ -25,10 +25,12 @@ function win(humanChoice, machineChoice) {
     machineScore_span.innerHTML = machineScore;
     humanChoice_div.classList.add("green-glow");
     setTimeout(() => humanChoice_div.classList.remove("green-glow"),500);
-    if(humanScore >= 10) { 
+    if (humanScore > 10 || machineScore > 10) { 
+        result_p.innerHTML = "Game over... Press the restart button."; 
+    } else if(humanScore === 10 && humanScore < 10) { 
         result_p.innerHTML = "You have won the game!...Congratutalions!!!";
-        endGame();
-    } else if(humanScore < 10) {
+        // endGame();
+    } else{
         result_p.innerHTML = `${humanChoice} beats ${machineChoice}.You have won the round!`;
     };
 }
@@ -40,10 +42,12 @@ function lose(humanChoice, machineChoice) {
     machineScore_span.innerHTML = machineScore;
     humanChoice_div.classList.add("red-glow");
     setTimeout(() => humanChoice_div.classList.remove("red-glow"),500);
-    if(machineScore >= 10) { 
+    if (machineScore > 10 || humanScore > 10) { 
+        result_p.innerHTML = "Game over... Press the restart button."; 
+    } else if(machineScore === 10 && humanScore < 10) { 
         result_p.innerHTML = "You have lost the game!...Better luck next time!";
         endGame();
-    } else if(machineScore < 10) {
+    } else{
         result_p.innerHTML = `${humanChoice} losses to ${machineChoice}.You have lost the round!`;
     };
 }
@@ -51,9 +55,15 @@ function lose(humanChoice, machineChoice) {
 function draw(humanChoice, machineChoice) {
     const humanChoice_div = document.getElementById(humanChoice);
     humanChoice_div.classList.add("gray-glow");
+    humanScore_span.innerHTML = humanScore;
+    machineScore_span.innerHTML = machineScore;
     setTimeout(() => humanChoice_div.classList.remove("gray-glow"),500);
-    result_p.innerHTML = `${humanChoice} equals ${machineChoice}.It\'s a draw!`; 
-} 
+    if(humanScore >= 10 || machineScore >= 10) { 
+        result_p.innerHTML = "Game over... Press the restart button."; 
+    } else{
+        result_p.innerHTML = `${humanChoice} equals ${machineChoice}.It\'s a draw!`; 
+    }
+}     
 
 function game(humanChoice) {
     const machineChoice = getMachineChoice();
@@ -68,19 +78,22 @@ function game(humanChoice) {
         case "PaperScissors":
             lose(humanChoice, machineChoice);
             break;
-        default:
+        case "RockRock":
+        case "PaperPaper":
+        case "ScissorsScissors":
             draw(humanChoice, machineChoice);
+            break;
     }
 }
 
-function endGame() {
-    rock_div.removeEventListener("click",() => game("Rock")
-    )
-    paper_div.removeEventListener("click",() => game("Paper")
-    )
-    scissors_div.removeEventListener("click",() => game("Scissors")
-    )
-}
+// function endGame() {
+//     rock_div.removeEventListener("click",() => game("Rock")
+//     )
+//     paper_div.removeEventListener("click",() => game("Paper")
+//     )
+//     scissors_div.removeEventListener("click",() => game("Scissors")
+//     )
+// }
 
 function restartGame() {
     result_p.innerHTML = "Ready for more?"
