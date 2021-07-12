@@ -29,7 +29,6 @@ function win(humanChoice, machineChoice) {
         result_p.innerHTML = "Game over... Press the restart button.";  
     } else if(humanScore === 10 && machineScore < 10) { 
         result_p.innerHTML = "You have won the game!...Congratulalions!!!";
-        // endGame();
     } else{
         result_p.innerHTML = `${humanChoice} beats ${machineChoice}.You have won the round!`;
     };
@@ -46,7 +45,6 @@ function lose(humanChoice, machineChoice) {
         result_p.innerHTML = "Game over... Press the restart button."; 
     } else if(machineScore === 10 && humanScore < 10) { 
         result_p.innerHTML = "You have lost the game!...Better luck next time!";
-        // endGame();
     } else{
         result_p.innerHTML = `${humanChoice} losses to ${machineChoice}.You have lost the round!`;
     };
@@ -85,15 +83,6 @@ function game(humanChoice) {
             break;
     }
 }
-
-// function endGame() {
-//     rock_div.removeEventListener("click",() => game("Rock")
-//     )
-//     paper_div.removeEventListener("click",() => game("Paper")
-//     )
-//     scissors_div.removeEventListener("click",() => game("Scissors")
-//     )
-// }
 
 function restartGame() {
     result_p.innerHTML = "Ready for more?"
