@@ -25,9 +25,9 @@ function win(humanChoice, machineChoice) {
     machineScore_span.innerHTML = machineScore;
     humanChoice_div.classList.add("green-glow");
     setTimeout(() => humanChoice_div.classList.remove("green-glow"),500);
-    if (humanScore > 10 || machineScore > 10) { 
+    if (humanScore > 10 || machineScore >= 10) { 
         result_p.innerHTML = "Game over... Press the restart button."; 
-    } else if(humanScore == 10 && machineScore < 10) { 
+    } else if(humanScore === 10 && machineScore < 10) { 
         result_p.innerHTML = "You have won the game!...Congratutalions!!!";
         // endGame();
     } else{
@@ -42,9 +42,9 @@ function lose(humanChoice, machineChoice) {
     machineScore_span.innerHTML = machineScore;
     humanChoice_div.classList.add("red-glow");
     setTimeout(() => humanChoice_div.classList.remove("red-glow"),500);
-    if (machineScore > 10 || humanScore > 10) { 
+    if (machineScore > 10 || humanScore >= 10) { 
         result_p.innerHTML = "Game over... Press the restart button."; 
-    } else if(machineScore == 10 && humanScore < 10) { 
+    } else if(machineScore === 10 && humanScore < 10) { 
         result_p.innerHTML = "You have lost the game!...Better luck next time!";
         // endGame();
     } else{
@@ -58,7 +58,7 @@ function draw(humanChoice, machineChoice) {
     humanScore_span.innerHTML = humanScore;
     machineScore_span.innerHTML = machineScore;
     setTimeout(() => humanChoice_div.classList.remove("gray-glow"),500);
-    if(humanScore > 10 || machineScore > 10) { 
+    if(humanScore >= 10 || machineScore >= 10) { 
         result_p.innerHTML = "Game over... Press the restart button."; 
     } else{
         result_p.innerHTML = `${humanChoice} equals ${machineChoice}.It\'s a draw!`; 
