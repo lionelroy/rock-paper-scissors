@@ -27,7 +27,7 @@ function win(humanChoice, machineChoice) {
     setTimeout(() => humanChoice_div.classList.remove("green-glow"),500);
     if (humanScore > 10 || machineScore > 10) { 
         result_p.innerHTML = "Game over... Press the restart button."; 
-    } else if(humanScore == 10 && humanScore < 10) { 
+    } else if(humanScore == 10 && machineScore < 10) { 
         result_p.innerHTML = "You have won the game!...Congratutalions!!!";
         // endGame();
     } else{
