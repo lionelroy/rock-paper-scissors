@@ -46,7 +46,7 @@ function lose(humanChoice, machineChoice) {
     } else if(machineScore === 10 && humanScore < 10) { 
         result_p.innerHTML = "You have lost the game!...Better luck next time!";
     } else{
-        result_p.innerHTML = `${humanChoice} losses to ${machineChoice}.You have lost the round!`;
+        result_p.innerHTML = `${humanChoice} loses to ${machineChoice}.You have lost the round!`;
     };
 }
 
