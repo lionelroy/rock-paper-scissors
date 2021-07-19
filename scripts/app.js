@@ -84,6 +84,7 @@ function game(humanChoice) {
     }
 }
 
+
 function restartGame() {
     result_p.innerHTML = "Ready for more?"
     humanScore_span.innerHTML = humanScore;
