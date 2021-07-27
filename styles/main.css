@@ -130,3 +130,27 @@ button:hover {
     border: 4px solid #585858;
     box-shadow: 0 0 10px #282c2e;
 }
+
+footer {
+   font-size: 25px;
+    padding: 15px;
+    bottom: 0;
+    text-align: center;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#gh-logo {
+    width: 35px;
+    height: 35px;
+    margin-bottom: -9px;
+    margin-right: 10px;
+}
